@@ -6,4 +6,10 @@
     insert into users(userid, password, name)
     values (#{userid}, #{password}, #{name})    
     </insert>
+    <select id="login" resultType="com.example.doit.domains.UserDto"
+                       parameterType="com.example.doit.domains.UserDto">
+        select * from users 
+        where userid like #{userid}
+        and pssword like #{password}
+    </select>
 </mapper>
